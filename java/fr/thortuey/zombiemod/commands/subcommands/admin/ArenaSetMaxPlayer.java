@@ -25,14 +25,19 @@ public class ArenaSetMaxPlayer extends AliasSubCommands {
         if(sender instanceof Player) {
             Player player = (Player) sender;
             String arenaName = args[1];
-            int maxPlayers = Integer.parseInt(args[2]);
 
-            if(arenaName.length() < 1 ) {
-                player.sendMessage("[Zombie]: Vous devez préciser l'arène concerné");
-            } else {
-                if(maxPlayers < 2 ) {
+            if(arenaName.length() > 2 ) {
+                int maxPlayers = Integer.parseInt(args[2]);
+
+                if(maxPlayers > 2 ) {
+                    //TODO: Vérifier que l'arèene éxiste
+                    player.sendMessage("[Zombie]: Le nombre de joueur max pour l'arène "+arenaName+ " a été sauvegardé à "+ maxPlayers);
+                } else if (maxPlayers < 2 ) {
                     player.sendMessage("[Zombie]: Vous ne pouvez pas mettre un seul joueur maximum");
+
                 }
+            } else if(arenaName.length() < 2){
+                player.sendMessage("[Zombie]: Vous devez préciser l'arène concerné");
             }
         }
 

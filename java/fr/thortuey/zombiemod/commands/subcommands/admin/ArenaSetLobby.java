@@ -5,6 +5,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class ArenaSetLobby extends AliasSubCommands {
+    /** Programme corrigé **/
     @Override
     public String getName() {
         return "arenaSetLobby";
@@ -25,19 +26,20 @@ public class ArenaSetLobby extends AliasSubCommands {
         if(sender instanceof Player) {
             String arenaName = args[1];
             Player player =(Player) sender;
-            if(arenaName.length() <2) {
+            if(arenaName.length() > 2) {
 
                 int posXSpawn = (int) player.getLocation().getX();
                 int posYSpawn = (int) player.getLocation().getY();
                 int posZSpawn = (int) player.getLocation().getZ();
                 float yawSpawn = (float) player.getLocation().getYaw();
                 float pitchSpawn = (float) player.getLocation().getPitch();
+                //TODO: Vérifier que l'arèene éxiste
 
-                player.sendMessage("[Zombie]: Le point de spawn du Lobby de l'arène"+arenaName+"a été placé aux coordonnées XYZ Pitch Yaw"+posXSpawn+posYSpawn+posZSpawn+pitchSpawn+yawSpawn);
 
+                player.sendMessage("[Zombie]: Le point de spawn du Lobby de l'arène "+arenaName+" a été placé aux coordonnées XYZ Pitch Yaw "+posXSpawn+" "+posYSpawn+" "+posZSpawn+" "+pitchSpawn+" "+yawSpawn);
                 //TODO: Sauvegarder dans le fichier de configuration de l'arène les coordonnées X Y Z Yaw et Pitch du Lobby
 
-            } else {
+            } else if(arenaName.length() < 2) {
                 player.sendMessage("[Zbomie]: Vous devez spécifier le nom de l'arène");
             }
 
