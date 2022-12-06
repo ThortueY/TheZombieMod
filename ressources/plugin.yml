@@ -1,0 +1,9 @@
+name: TheZombieMod
+author: ThortueY
+version: 0.9 Alpha
+api-version: 1.16
+main: fr.thortuey.zombiemod.ZombieMod
+commands:
+  zombie:
+    description: alias command
+    aliases: [zmb]
