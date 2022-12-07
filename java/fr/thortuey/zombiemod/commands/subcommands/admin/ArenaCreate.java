@@ -14,7 +14,7 @@ public class ArenaCreate extends AliasSubCommands {
     /** Commande corrigée **/
     @Override
     public String getName() {
-        return "arena-create";
+        return "arenaCreate";
     }
 
     @Override
@@ -36,7 +36,7 @@ public class ArenaCreate extends AliasSubCommands {
             } else {
                 sender.sendMessage("[Zombie]: l'arène "+arenaName+" a été crée !");
                 sender.sendMessage("[Zombie]: Veillez à ce que votre arène soit configuré au minimum avant de vous déconnecter ou de relancer le serveur");
-                //TODO : Dans le fichier de configuration de l'arène mettre le nom de l'arène.
+                //TODO: Dans le fichier de configuration de l'arène mettre le nom de l'arène.
 
             }
 

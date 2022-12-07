@@ -26,5 +26,6 @@ public class Help extends AliasSubCommands {
         sender.sendMessage("[Zombies]: All commands for players");
 
 
+
     }
 }

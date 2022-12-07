@@ -18,7 +18,7 @@ public class ArenaPos extends AliasSubCommands {
 
     @Override
     public String getSyntax() {
-        return "/zmb setPosition [ArenaName] ][Pos1 / Pos2]";
+        return "/zmb arenaPos [ArenaName] ][Pos1 / Pos2]";
     }
 
     @Override
@@ -33,7 +33,7 @@ public class ArenaPos extends AliasSubCommands {
                     int posX1 = (int) player.getLocation().getX();
                     int posY1 = (int) player.getLocation().getY();
                     int posZ1 = (int) player.getLocation().getZ();
-                    player.sendMessage("(Zombie]: Position 1 placé à XYZ " + posX1+" " + posY1 +" "+ posZ1 + " pour l'arène " + arenaName);
+                    player.sendMessage("[Zombie]: Position 1 placé à XYZ " + posX1+" " + posY1 +" "+ posZ1 + " pour l'arène " + arenaName);
                     //TODO: Vérifier que l'arèene éxiste
                     //TODO: Dans le fichier configuration de l'arène transposer les coordonnées X, Y et Z du joueur dans la config dans la case 'Pos1' **
                 } else if (position == 2) {
@@ -41,7 +41,7 @@ public class ArenaPos extends AliasSubCommands {
                     int posY2 = (int) player.getLocation().getY();
                     int posZ2 = (int) player.getLocation().getZ();
                     //TODO: Vérifier que l'arèene éxiste
-                    player.sendMessage("(Zombie]: Position 2 placé à XYZ " + posX2+" " + posY2 +" "+ posZ2 + " pour l'arène " + arenaName);
+                    player.sendMessage("[Zombie]: Position 2 placé à XYZ " + posX2+" " + posY2 +" "+ posZ2 + " pour l'arène " + arenaName);
                     //TODO: Dans le fichier configuration d el'arène transposer les coordonnées X, Y et Z du joueur dans la config dans la case 'O
                 }
             } else if (arenaName.length() < 2 ) {player.sendMessage("[Zombie]: Vous devez spécifier l'arène");}

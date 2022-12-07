@@ -25,6 +25,8 @@ public class Alias implements CommandExecutor
         subCommands.add(new ArenaSetLobby());
         subCommands.add(new ArenaSetMapSpawn());
         subCommands.add(new ArenaSetMaxPlayer());
+        subCommands.add(new ArenaSetBreakableWindow());
+        subCommands.add(new ArenaAddBreakableWindow());
     }
 
     public ArrayList<AliasSubCommands> getSubCommands() {

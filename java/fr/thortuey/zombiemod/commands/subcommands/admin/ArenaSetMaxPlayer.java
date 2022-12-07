@@ -5,6 +5,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class ArenaSetMaxPlayer extends AliasSubCommands {
+    /** Commande Corrigée **/
     @Override
     public String getName() {
         return "arenaSetMaxPlayers";
@@ -32,6 +33,7 @@ public class ArenaSetMaxPlayer extends AliasSubCommands {
                 if(maxPlayers > 2 ) {
                     //TODO: Vérifier que l'arèene éxiste
                     player.sendMessage("[Zombie]: Le nombre de joueur max pour l'arène "+arenaName+ " a été sauvegardé à "+ maxPlayers);
+                    //TODO: Sauvegarder dans la configuration l'arène le nombre de joueurs max
                 } else if (maxPlayers < 2 ) {
                     player.sendMessage("[Zombie]: Vous ne pouvez pas mettre un seul joueur maximum");
 
