@@ -1,11 +1,18 @@
 package fr.thortuey.zombiemod.commands.subcommands.admin;
 
+import fr.thortuey.zombiemod.ZombieMod;
 import fr.thortuey.zombiemod.commands.AliasSubCommands;
+import fr.thortuey.zombiemod.util.ArenaSaveYAML;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.java.JavaPlugin;
+
+import java.io.IOException;
 
 public class ArenaPos extends AliasSubCommands {
     /**Commande corrigée **/
+    ZombieMod plugin = (ZombieMod) JavaPlugin.getPlugin(ZombieMod.class);
+
     @Override
     public String getName() {
         return "arenaPos";
@@ -23,26 +30,44 @@ public class ArenaPos extends AliasSubCommands {
 
     @Override
     public void onCommand(CommandSender sender, String[] args) {
+
+
         if(sender instanceof Player) {
             Player player = (Player) sender;
             String arenaName = args[1];
             if (arenaName.length() > 2) {
                 int position = Integer.parseInt(args[2]);
+                boolean getArenaExist = (new ArenaSaveYAML(this.plugin).isArenaExist(arenaName));
+
 
                 if (position == 1) {
                     int posX1 = (int) player.getLocation().getX();
                     int posY1 = (int) player.getLocation().getY();
                     int posZ1 = (int) player.getLocation().getZ();
                     player.sendMessage("[Zombie]: Position 1 placé à XYZ " + posX1+" " + posY1 +" "+ posZ1 + " pour l'arène " + arenaName);
-                    //TODO: Vérifier que l'arèene éxiste
-                    //TODO: Dans le fichier configuration de l'arène transposer les coordonnées X, Y et Z du joueur dans la config dans la case 'Pos1' **
+                    //Vérifier que l'arèene éxiste + Dans le fichier configuration de l'arène transposer les coordonnées X, Y et Z du joueur dans la config dans la case 'Pos1' **
+
+                    if (getArenaExist == true) {
+                        new ArenaSaveYAML(this.plugin).setArenaPosition1(arenaName,posX1,posY1,posZ1);
+                        player.sendMessage("[Zombie]: Configuration position 1 sauvegardé");
+                    } else {
+                        player.sendMessage("[Zombie]: Cette arène n'éxiste pas");
+                    }
+
                 } else if (position == 2) {
                     int posX2 = (int) player.getLocation().getX();
                     int posY2 = (int) player.getLocation().getY();
                     int posZ2 = (int) player.getLocation().getZ();
-                    //TODO: Vérifier que l'arèene éxiste
                     player.sendMessage("[Zombie]: Position 2 placé à XYZ " + posX2+" " + posY2 +" "+ posZ2 + " pour l'arène " + arenaName);
+                    //TODO: Vérifier que l'arèene éxiste
                     //TODO: Dans le fichier configuration d el'arène transposer les coordonnées X, Y et Z du joueur dans la config dans la case 'O
+                    if (getArenaExist == true) {
+                        new ArenaSaveYAML(this.plugin).setArenaPosition1(arenaName,posX2,posY2,posZ2);
+                        player.sendMessage("[Zombie]: Configuration position 1 sauvegardé");
+                    } else {
+                        player.sendMessage("[Zombie]: Cette arène n'éxiste pas");
+                    }
+
                 }
             } else if (arenaName.length() < 2 ) {player.sendMessage("[Zombie]: Vous devez spécifier l'arène");}
         } else {
