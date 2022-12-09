@@ -37,7 +37,6 @@ public class ArenaPos extends AliasSubCommands {
             String arenaName = args[1];
             if (arenaName.length() > 2) {
                 int position = Integer.parseInt(args[2]);
-                boolean getArenaExist = (new ArenaSaveYAML(this.plugin).isArenaExist(arenaName));
 
 
                 if (position == 1) {
@@ -46,13 +45,8 @@ public class ArenaPos extends AliasSubCommands {
                     int posZ1 = (int) player.getLocation().getZ();
                     player.sendMessage("[Zombie]: Position 1 placé à XYZ " + posX1+" " + posY1 +" "+ posZ1 + " pour l'arène " + arenaName);
                     //Vérifier que l'arèene éxiste + Dans le fichier configuration de l'arène transposer les coordonnées X, Y et Z du joueur dans la config dans la case 'Pos1' **
+                    new ArenaSaveYAML(this.plugin).setArenaPosition1(arenaName,posX1,posY1,posZ1);
 
-                    if (getArenaExist == true) {
-                        new ArenaSaveYAML(this.plugin).setArenaPosition1(arenaName,posX1,posY1,posZ1);
-                        player.sendMessage("[Zombie]: Configuration position 1 sauvegardé");
-                    } else {
-                        player.sendMessage("[Zombie]: Cette arène n'éxiste pas");
-                    }
 
                 } else if (position == 2) {
                     int posX2 = (int) player.getLocation().getX();
@@ -61,12 +55,8 @@ public class ArenaPos extends AliasSubCommands {
                     player.sendMessage("[Zombie]: Position 2 placé à XYZ " + posX2+" " + posY2 +" "+ posZ2 + " pour l'arène " + arenaName);
                     //TODO: Vérifier que l'arèene éxiste
                     //TODO: Dans le fichier configuration d el'arène transposer les coordonnées X, Y et Z du joueur dans la config dans la case 'O
-                    if (getArenaExist == true) {
-                        new ArenaSaveYAML(this.plugin).setArenaPosition1(arenaName,posX2,posY2,posZ2);
-                        player.sendMessage("[Zombie]: Configuration position 1 sauvegardé");
-                    } else {
-                        player.sendMessage("[Zombie]: Cette arène n'éxiste pas");
-                    }
+                    new ArenaSaveYAML(this.plugin).setArenaPosition2(arenaName,posX2,posY2,posZ2);
+
 
                 }
             } else if (arenaName.length() < 2 ) {player.sendMessage("[Zombie]: Vous devez spécifier l'arène");}

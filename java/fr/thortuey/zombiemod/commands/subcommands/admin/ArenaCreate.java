@@ -32,7 +32,7 @@ public class ArenaCreate extends AliasSubCommands {
         } else {
             sender.sendMessage("[Zombie]: l'arène " + arenaName + " a été crée !");
             sender.sendMessage("[Zombie]: Veillez à ce que votre arène soit configuré au minimum avant de vous déconnecter ou de relancer le serveur");
-            (new ArenaSaveYAML(this.plugin)).createArenaConfig(arenaName);
+            new ArenaSaveYAML(this.plugin).createArenaConfig(arenaName);
         }
 
     }
