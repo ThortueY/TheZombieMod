@@ -1,4 +1,4 @@
-arenas:
+arena:
   - example: "\ZombieMod\Example"
 
 multiverse-support: true
