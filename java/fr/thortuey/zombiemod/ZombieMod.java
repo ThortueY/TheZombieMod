@@ -1,7 +1,7 @@
 package fr.thortuey.zombiemod;
 
 import fr.thortuey.zombiemod.commands.Alias;
-import fr.thortuey.zombiemod.util.ArenaSaveYAML;
+import fr.thortuey.zombiemod.util.ArenaSaver;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Logger;
@@ -9,7 +9,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class ZombieMod extends JavaPlugin {
     public static Logger log;
-    ArenaSaveYAML arenaSaveYAML;
+    ArenaSaver ArenaSaver;
 
     public ZombieMod() {
     }
@@ -34,8 +34,8 @@ public class ZombieMod extends JavaPlugin {
 
     }
 
-    public void setArenaSaveYAML(ArenaSaveYAML arenaSaveYAML) {
-        this.arenaSaveYAML = arenaSaveYAML;
+    public void setArenaSaver(ArenaSaver ArenaSaver) {
+        this.ArenaSaver = ArenaSaver;
     }
 
     public void onEnable() {
@@ -46,8 +46,8 @@ public class ZombieMod extends JavaPlugin {
         System.out.println("§2§n[Zombie]:§r§a Loading configuration");
         this.createConfig();
 
-        System.out.println("§2§n[Zombie]:§r§4 Loading arenas ....");
-        new ArenaSaveYAML(this);
+        System.out.println("§2§n[Zombie]:§r§4 Loading arena ....");
+        new ArenaSaver();
         super.onEnable();
     }
 

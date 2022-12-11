@@ -2,13 +2,13 @@ package fr.thortuey.zombiemod.commands.subcommands.admin;
 
 import fr.thortuey.zombiemod.ZombieMod;
 import fr.thortuey.zombiemod.commands.AliasSubCommands;
-import fr.thortuey.zombiemod.util.ArenaSaveYAML;
+import fr.thortuey.zombiemod.util.ArenaSaver;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class ArenaCreate extends AliasSubCommands {
     ZombieMod plugin = (ZombieMod)JavaPlugin.getPlugin(ZombieMod.class);
-    ArenaSaveYAML arena;
+    ArenaSaver arena;
 
     public ArenaCreate() {
     }
@@ -32,7 +32,7 @@ public class ArenaCreate extends AliasSubCommands {
         } else {
             sender.sendMessage("[Zombie]: l'arène " + arenaName + " a été crée !");
             sender.sendMessage("[Zombie]: Veillez à ce que votre arène soit configuré au minimum avant de vous déconnecter ou de relancer le serveur");
-            new ArenaSaveYAML(this.plugin).createArenaConfig(arenaName);
+            new ArenaSaver().createArenaConfig(arenaName);
         }
 
     }
